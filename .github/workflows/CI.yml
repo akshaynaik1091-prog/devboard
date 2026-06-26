@@ -16,5 +16,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-        
+
+      - name: Build and Push Image
+        uses: docker/build-push-action@v7
+        with:
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
   
